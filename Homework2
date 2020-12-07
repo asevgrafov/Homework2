@@ -1,0 +1,48 @@
+path1 = '/home/stanger/PycharmProjects/Homework2/1.txt'
+path2 = '/home/stanger/PycharmProjects/Homework2/2.txt'
+path3 = '/home/stanger/PycharmProjects/Homework2/3.txt'
+path4 = '/home/stanger/PycharmProjects/Homework2/4.txt'
+path5 = '/home/stanger/PycharmProjects/Homework2/5.txt'
+path6 = '/home/stanger/PycharmProjects/Homework2/6.txt'
+
+
+def read_file(path):
+    with open(path, 'r') as file:
+        a = file.readlines()
+    a = [[int(n) for n in x.split()] for x in a]
+    print(a)
+    return a
+
+
+def abc(a):
+    count = 0
+    for i in range(len(a)):
+        for j in range(len(a[i])):
+            if a[i][j] == 1:
+                count += 1
+                check(a, i, j)
+    print(count)
+    return count
+
+
+def check(a, i, j):
+    if i < 0 or i >= len(a):
+        return
+    if j < 0 or j >= len(a[i]):
+        return
+    if a[i][j] == 0:
+        return
+    else:
+        a[i][j] = 0
+        check(a, i, j + 1)
+        check(a, i - 1, j)
+        check(a, i + 1, j)
+        check(a, i, j - 1)
+
+
+abc(read_file(path1))
+abc(read_file(path2))
+abc(read_file(path3))
+abc(read_file(path4))
+abc(read_file(path5))
+abc(read_file(path6))
