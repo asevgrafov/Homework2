@@ -14,7 +14,7 @@ def read_file(path: str) -> list:
     return a
 
 
-def abc(a: list) -> int:
+def calculate(a: list) -> int:
     count = 0
     for i in range(len(a)):
         for j in range(len(a[i])):
@@ -41,10 +41,10 @@ def check(a: list, i: int, j: int) -> int:
     return 1
 
 
-abc(read_file(path1))
-abc(read_file(path2))
-abc(read_file(path3))
-abc(read_file(path4))
-abc(read_file(path5))
-abc(read_file(path6))
+calculate(read_file(path1))
+calculate(read_file(path2))
+calculate(read_file(path3))
+calculate(read_file(path4))
+calculate(read_file(path5))
+calculate(read_file(path6))
 
