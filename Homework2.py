@@ -1,12 +1,12 @@
-path1 = '/home/stanger/PycharmProjects/Homework2/1.txt'
-path2 = '/home/stanger/PycharmProjects/Homework2/2.txt'
-path3 = '/home/stanger/PycharmProjects/Homework2/3.txt'
-path4 = '/home/stanger/PycharmProjects/Homework2/4.txt'
-path5 = '/home/stanger/PycharmProjects/Homework2/5.txt'
-path6 = '/home/stanger/PycharmProjects/Homework2/6.txt'
+path1 = '1.txt'
+path2 = '2.txt'
+path3 = '3.txt'
+path4 = '4.txt'
+path5 = '5.txt'
+path6 = '6.txt'
 
 
-def read_file(path):
+def read_file(path: str) -> list:
     with open(path, 'r') as file:
         a = file.readlines()
     a = [[int(n) for n in x.split()] for x in a]
@@ -14,7 +14,7 @@ def read_file(path):
     return a
 
 
-def abc(a):
+def abc(a: list) -> int:
     count = 0
     for i in range(len(a)):
         for j in range(len(a[i])):
@@ -25,19 +25,20 @@ def abc(a):
     return count
 
 
-def check(a, i, j):
+def check(a: list, i: int, j: int) -> int:
     if i < 0 or i >= len(a):
-        return
+        return 0
     if j < 0 or j >= len(a[i]):
-        return
+        return 0
     if a[i][j] == 0:
-        return
+        return 0
     else:
         a[i][j] = 0
         check(a, i, j + 1)
         check(a, i - 1, j)
         check(a, i + 1, j)
         check(a, i, j - 1)
+    return 1
 
 
 abc(read_file(path1))
@@ -46,3 +47,4 @@ abc(read_file(path3))
 abc(read_file(path4))
 abc(read_file(path5))
 abc(read_file(path6))
+
