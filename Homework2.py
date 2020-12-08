@@ -8,8 +8,8 @@ path6 = '6.txt'
 
 def read_file(path: str) -> list:
     with open(path, 'r') as file:
-        a = file.readlines()
-    a = [[int(n) for n in x.split()] for x in a]
+        lines = file.readlines()
+    a = [[int(n) for n in x.split()] for x in lines]
     print(a)
     return a
 
