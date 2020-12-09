@@ -6,8 +6,8 @@ path5 = '5.txt'
 path6 = '6.txt'
 
 
+"""Открываем файл на чтение и записываем значения в массив"""
 def read_file(path: str) -> list:
-    """Открываем файл на чтение и записываем значения в массив"""
     with open(path, 'r') as file:
         lines = file.readlines()
     a = [[int(n) for n in x.split()] for x in lines]
