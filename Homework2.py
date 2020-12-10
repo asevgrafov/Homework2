@@ -6,8 +6,8 @@ path5 = '5.txt'
 path6 = '6.txt'
 
 
-"""Открываем файл на чтение и записываем значения в массив"""
 def read_file(path: str) -> list:
+    """Открываем файл на чтение и записываем значения в массив"""
     with open(path, 'r') as file:
         lines = file.readlines()
     a = [[int(n) for n in x.split()] for x in lines]
@@ -16,6 +16,7 @@ def read_file(path: str) -> list:
 
 
 def calculate(a: list) -> int:
+    """Считаем количество кратеров"""
     count = 0
     for i in range(len(a)):
         for j in range(len(a[i])):
@@ -27,6 +28,7 @@ def calculate(a: list) -> int:
 
 
 def check(a: list, i: int, j: int) -> int:
+    """Рекурсивно проходим по кратеру"""
     if i < 0 or i >= len(a):
         return 0
     if j < 0 or j >= len(a[i]):
@@ -48,4 +50,3 @@ calculate(read_file(path3))
 calculate(read_file(path4))
 calculate(read_file(path5))
 calculate(read_file(path6))
-
